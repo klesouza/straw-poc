@@ -1,0 +1,7 @@
+{
+    "name": "straw-poc",
+    "description": "Testtin straw",
+    "dependencies":{
+        "straw": "~0.3.0"
+    }
+}

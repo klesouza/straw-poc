@@ -1,0 +1,22 @@
+version: '2'
+services:        
+    redis:
+      image: redis
+    master:
+        image: ks/strawpoc
+        command: node run.js
+        ports:
+            - "8124:8124"
+            - "5858:5858"
+        links:
+            - redis
+    slave:
+        image: ks/strawpoc
+        command: node run-poc.js
+        links:
+            - redis
+    slave-1:
+        image: ks/strawpoc
+        command: node run-poc.js
+        links:
+            - redis
