@@ -69,7 +69,6 @@ function Runner (node, opts, done) {
 
   // handle child process exiting
   this.onChildExit = function(code, sig) {
-    console.log(sig)
     self.opts.logger.log(
       'info',
       pad.timestamp(),

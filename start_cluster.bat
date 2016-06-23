@@ -1,2 +1,3 @@
+docker-compose stop
 docker build -t ks/strawpoc .
-docker-compose up -d --force-recreate
+docker-compose up -d

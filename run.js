@@ -14,8 +14,8 @@ var topo = straw.create(opts);
 var s = net.createServer(function(c){  
     c.on('data', function(d){
         for(var i in clients){
-            clients[i].write(d);
-            //console.log(d);
+            if(clients[i] != c)
+                clients[i].write(d);
         }
     });
     c.on('end', function () {
@@ -32,11 +32,11 @@ s.listen(8124, function(){
         node: 'entry',
         output: 'process'
     }
-    // ,{
-    //     id: 'process',
-    //     node: 'process',
-    //     input: 'process'
-    // }
+    ,{
+        id: 'process',
+        node: 'process',
+        input: 'process'
+    }
     ], function(){
         topo.start({purge: true});
     });

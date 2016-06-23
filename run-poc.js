@@ -11,6 +11,12 @@ var tap = straw.tap({
 });
 
 tap.on('message', function (msg) {
-    console.log('message '+os.hostname);
+    console.log('message '+os.hostname());
+    console.log(msg);
 })
 
+process.on( 'SIGINT', function() {
+  tap.destroy(function(){
+    console.log( 'Finished.' );
+  });
+});

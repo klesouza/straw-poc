@@ -20,13 +20,8 @@ module.exports = straw.node({
             console.log('error' + r);
         })
         this.client.on('data', function (data) {
-            console.log('data');
             self.output(data);
         })
-        // setInterval(function(){
-        //     console.log('interval');
-        //     self.output(new Date());
-        // },300);
         done();
     }
 });

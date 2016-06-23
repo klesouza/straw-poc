@@ -5,7 +5,6 @@ var redis = require('redis');
 var async = require('async');
 
 function Run() {
-  console.log('created')
   var self = this;
 
   var Node, node, prefix;
@@ -90,7 +89,6 @@ function Run() {
   // redis client, options
 
   node = new Node(this.node);
-  console.log(node)
   // when node emits a message distribute it to the appropriate pipes
 
   node.on('message', function(data){
@@ -142,7 +140,6 @@ function Run() {
 
   // receive command from controlling process (runner.js)
   process.on('message', function(data){
-    console.log('fuck3 ' +data)
     if ( data === 'START' ) {
       if(self.running){
         // already running
@@ -177,7 +174,6 @@ function Run() {
         self.clients.node.quit();
         process.send('STOPPED');
         process.send('QUIT');
-        console.log('fuck')
         process.exit(0);
       });
     }
@@ -185,7 +181,6 @@ function Run() {
   });
 
   this.stop = function(done){
-    console.log('fuck2')
     if(!self.running){
       return done();
     }
