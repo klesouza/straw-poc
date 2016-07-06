@@ -15,8 +15,3 @@ services:
         command: node run-poc.js
         links:
             - redis
-    slave-1:
-        image: ks/strawpoc
-        command: node run-poc.js
-        links:
-            - redis
